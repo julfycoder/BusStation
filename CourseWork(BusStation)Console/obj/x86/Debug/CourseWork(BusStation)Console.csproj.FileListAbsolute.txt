@@ -1,0 +1,5 @@
+D:\Windows.old.001\Users\Bogdan\Documents\Visual Studio 2010\Projects\CourseWork(BusStation)Console\CourseWork(BusStation)Console\bin\Debug\CourseWork(BusStation)Console.exe
+D:\Windows.old.001\Users\Bogdan\Documents\Visual Studio 2010\Projects\CourseWork(BusStation)Console\CourseWork(BusStation)Console\bin\Debug\CourseWork(BusStation)Console.pdb
+D:\Windows.old.001\Users\Bogdan\Documents\Visual Studio 2010\Projects\CourseWork(BusStation)Console\CourseWork(BusStation)Console\obj\x86\Debug\CourseWork(BusStation)Console.exe
+D:\Windows.old.001\Users\Bogdan\Documents\Visual Studio 2010\Projects\CourseWork(BusStation)Console\CourseWork(BusStation)Console\obj\x86\Debug\CourseWork(BusStation)Console.pdb
+D:\Windows.old.001\Users\Bogdan\Documents\Visual Studio 2010\Projects\CourseWork(BusStation)Console\CourseWork(BusStation)Console\obj\x86\Debug\CourseWork(BusStation)Console.csprojResolveAssemblyReference.cache
