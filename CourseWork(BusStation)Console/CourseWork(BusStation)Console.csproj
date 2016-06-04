@@ -47,12 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\BusStationAccess.cs" />
+    <Compile Include="Model\AuthentificationEntity\Administrator.cs" />
     <Compile Include="Model\BusStationEntity\Bus.cs" />
     <Compile Include="Model\BusStationEntity\Driver.cs" />
-    <Compile Include="Model\BusStationEntity\EntityBuilder.cs" />
+    <Compile Include="Model\EntityBuilder.cs" />
     <Compile Include="Model\BusStationEntity\Flight.cs" />
     <Compile Include="Model\BusStationEntity\Passenger.cs" />
     <Compile Include="Model\BusStationEntity\Ticket.cs" />
+    <Compile Include="Model\IAccessible.cs" />
     <Compile Include="Model\WorkingWithDatabase\Database.cs" />
     <Compile Include="Model\WorkingWithDatabase\DatabaseBuilder.cs" />
     <Compile Include="Model\WorkingWithDatabase\MySqlDatabase.cs" />

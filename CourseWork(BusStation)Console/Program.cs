@@ -6,6 +6,8 @@ using CourseWork_BusStation_Console.Model.WorkingWithDatabase;
 using CourseWork_BusStation_Console.Model.BusStationEntity;
 using System.Data;
 using System.Reflection;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace CourseWork_BusStation_Console
 {
@@ -13,34 +15,123 @@ namespace CourseWork_BusStation_Console
     {
         static void Main(string[] args)
         {
-            List<Bus> buses = new List<Bus>();
-            string busTable = "Bus";
+            Model.BusStationAccess station = new Model.BusStationAccess();
 
-            Database database = GetDataBase();
+            station.ChangeEntity(new Flight()
+            {
+                idFlight = 19
+            }, new Flight()
+            {
+                Intermediate_stops="Belgorod"
+            });
+
+            List<Flight> flights = station.GetEntities<Flight>();
+
+
+            //List<Ticket> tickets = station.GetTickets();
+            //List<Passenger> passengers = station.GetPassengers();
+            //List<Driver> drivers = station.GetDrivers();
+            //List<Bus> buses = station.GetBuses();
+
+            //List<Flight> flights = station.GetEntitiesByPrototype(new Flight() { Departure_place = "Киев"});
+
+            DrawFlights(flights);
+            //Console.WriteLine();
+            //DrawTickets(tickets);
+            //Console.WriteLine();
+            //DrawPassengers(passengers);
+            //Console.WriteLine();
+            //DrawDrivers(drivers);
+            //Console.WriteLine();
+            //DrawBuses(buses);
 
             Console.ReadLine();
         }
-        static Database GetDataBase()
+        static string Process<T>()
         {
-            DatabaseBuilder builder = new MySqlDatabaseBuilder();
-            builder.SetDatabaseName("mydb");
-            builder.SetServerAddress("127.0.0.1");
-            builder.SetPort(3306);
-            builder.SetUserName("root");
-            builder.SetPassword("");
-            return builder.BuildDatabase();
+            return typeof(T).Name;
         }
-        
-        static void DrawTable(DataTable myTable)
+        static void DrawFlights(List<Flight> collection)
         {
-            foreach (DataColumn column in myTable.Columns)
+            foreach (PropertyInfo property in new Flight().GetType().GetProperties())
             {
-                Console.Write(column.ColumnName + "\t\t");
+                Console.Write(property.Name + "\t");
             }
             Console.WriteLine();
-            foreach (DataRow row in myTable.Rows)
+            foreach (object entity in collection)
             {
-                foreach (DataColumn column in myTable.Columns) Console.Write(row[column] + "\t\t");
+                foreach (PropertyInfo property in entity.GetType().GetProperties())
+                {
+                    Console.Write(property.GetValue(entity, null) + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void DrawDrivers(List<Driver> collection)
+        {
+            foreach (PropertyInfo property in new Driver().GetType().GetProperties())
+            {
+                Console.Write(property.Name + "\t");
+            }
+            Console.WriteLine();
+            foreach (object entity in collection)
+            {
+                foreach (PropertyInfo property in entity.GetType().GetProperties())
+                {
+                    Console.Write(property.GetValue(entity, null) + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void DrawBuses(List<Bus> collection)
+        {
+            foreach (PropertyInfo property in new Bus().GetType().GetProperties())
+            {
+                Console.Write(property.Name + "\t");
+            }
+            Console.WriteLine();
+            foreach (object entity in collection)
+            {
+                foreach (PropertyInfo property in entity.GetType().GetProperties())
+                {
+                    Console.Write(property.GetValue(entity, null) + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void DrawPassengers(List<Passenger> collection)
+        {
+            foreach (PropertyInfo property in new Passenger().GetType().GetProperties())
+            {
+                Console.Write(property.Name + "\t");
+            }
+            Console.WriteLine();
+            foreach (object entity in collection)
+            {
+                foreach (PropertyInfo property in entity.GetType().GetProperties())
+                {
+                    Console.Write(property.GetValue(entity, null) + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void DrawTickets(List<Ticket> collection)
+        {
+            foreach (PropertyInfo property in new Ticket().GetType().GetProperties())
+            {
+                Console.Write(property.Name + "\t");
+            }
+            Console.WriteLine();
+            foreach (object entity in collection)
+            {
+                foreach (PropertyInfo property in entity.GetType().GetProperties())
+                {
+                    Console.Write(property.GetValue(entity, null) + "\t");
+                }
                 Console.WriteLine();
             }
         }

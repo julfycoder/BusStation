@@ -12,6 +12,6 @@ namespace CourseWork_BusStation_Console.Model.BusStationEntity
         public int idFlight { get; set; }
         public int idBus { get; set; }
         public int Cost { get; set; }
-        public string Purchase_date { get; set; }
+        public DateTime PurchaseDate { get; set; }
     }
 }
